@@ -6,7 +6,7 @@ OBJS = main.o RestartShutdownLogout.o
 all: macsleep
 
 macsleep: $(OBJS)
-	gcc $(CFLAGS) -framework Carbon -o macsleep $(OBJS)
+	$(CC) $(CFLAGS) -framework Carbon -o $@ $(OBJS)
 
 clean:
 	-rm -f macsleep *.o *~ core
