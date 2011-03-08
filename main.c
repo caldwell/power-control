@@ -5,7 +5,7 @@ int main(void)
 {
     OSStatus status = SendAppleEventToSystemProcess(kAESleep);
     if (status != noErr)
-        printf("Computer wouldn't sleep: %d\n", status);
+        printf("Computer wouldn't sleep: %d\n", (int)status);
 
     return status == noErr;
 }
