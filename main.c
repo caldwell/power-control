@@ -14,6 +14,6 @@ int main(void)
     error = SendAppleEventToSystemProcess(kAESleep);
     if (error != noErr)
         printf("Computer wouldn't sleep\nNote this function only works on MacOSX\n");
-    
-    return(0);
+
+    return status == noErr;
 }
