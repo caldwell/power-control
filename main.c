@@ -7,5 +7,5 @@ int main(void)
     if (status != noErr)
         printf("Computer wouldn't sleep: %d\n", (int)status);
 
-    return status == noErr;
+    return status == noErr ? EXIT_SUCCESS : EXIT_FAILURE;
 }
