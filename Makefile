@@ -1,15 +1,11 @@
-CC = gcc
-CFLAGS += -arch i386 -arch ppc
-CFLAGS += -std=gnu99
-CFLAGS += -g
-CFLAGS += -Wall
+all: power-control
 
-OBJS = main.o RestartShutdownLogout.o
-
-all: macsleep
-
-macsleep: $(OBJS)
-	$(CC) $(CFLAGS) -framework Carbon -o $@ $(OBJS)
+power-control: power-control.o RestartShutdownLogout.o
+power-control: LDLIBS += -framework Carbon
+power-control: TARGET_ARCH += -arch i386 -arch ppc
+power-control: CFLAGS += -std=gnu99
+power-control: CFLAGS += -g
+power-control: CFLAGS += -Wall
 
 clean:
-	-rm -f macsleep *.o *~ core
+	-rm -f power-control *.o *~
